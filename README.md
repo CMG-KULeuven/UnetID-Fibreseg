@@ -4,7 +4,7 @@
 <div align="center">
   </a>
 
-  <h3 align="center">UnetBasedSegm_PyTorch</h3>
+  <h3 align="center">FibreSegt_PyTorch</h3>
 
   <p align="center">
     Individual fibre segmentation with PyTorch based on
@@ -15,8 +15,8 @@
   </p>
 </div>
 
-![UnetID](images/UnetID.png)
-
+<!-- ![UnetID](images/unetid.png) -->
+![Segmentation results](images/segm_results.png)
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -34,70 +34,91 @@
       <a href="#usage">Usage</a>
         <ul>
         <li><a href="#training">Training</a></li>
-        <li><a href="#Segment-2D-fibre">Segment 2D fibre</a></li>
-        <li><a href="#Segment-3D&4D-fiber&4D">Segment 3D&4D fiber</a></li>
+        <li><a href="#segment-slices">Segment slices</a></li>
+        <li><a href="#segment-volume">Segment volume</a></li>
+        <li><a href="#evaluation">Evaluation</a></li>
       </ul>
     </li>
     <li><a href="#pretrained-model">Pretrained model</a></li>
+    <li><a href="#how-fibresegt-works">How FibreSegt works</a></li>
+    <li><a href="#citation">Citation</a></li>
+    <li><a href="#contributors">Contributors</a></li>
   </ol>
 </details>
 
 ## Introduction
-This project is used to automatically segment individual fibres for unidirectional fibre reinforced composites, which is the first step to help understand the characteristics of the composite microstructures.  
-This tool can be used for 
-* Low contrast and low resolutions CT images
-* Segmentation of 3D and 4D CT data
+This project, **FibreSegt**, is designed for the automatic segmentation of individual fibres in unidirectional fibre reinforced composites. It is a powerful tool that allows for the understanding of the characteristics of composite microstructures. FibreSegt can be used for:
+
+    Segmentation of low contrast and relatively low resolution CT images
+    Automated segmentation of large 3D CT data
+
+With FibreSegt, you can easily segment and analyze composite microstructures, providing you with valuable insights that can help improve the performance and strength of your materials.
   
 ## Getting Started
-This project is tested on the Pytorch1.9.0, Python3.9.5 on Windows.   
-The GPU is NVIDIA RTX A5000 
+This project has been tested on Pytorch 1.9.0, Python 3.9.5, and Windows 10 using an NVIDIA RTX A5000 GPU.
 ### Prerequisites
 1. Install [CUDA](https://developer.nvidia.com/cuda-downloads)
 2. Install [PyTorch](https://pytorch.org/)  
-   Install [Previous PyTorch version](https://pytorch.org/get-started/previous-versions/)  
-   Notice the PyTorch version and CUDA version need to be compatible.
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-[Anaconda](https://www.anaconda.com/products/distribution#download-section) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html#linux-installers) is recommended, then you can create the unetbasedsegm_torch1.9 environment with commands below:
-```bash
-conda create -n unetbasedsegm_torch1.9 python=3.9.5
-conda activate unetbasedsegm_torch1.9
-conda install pytorch==1.9.0 torchvision==0.10.0 torchaudio==0.9.0 cudatoolkit=11.1 -c pytorch -c conda-forge
-or pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
-conda install ipykernel
-python -m ipykernel install --user --name unetbasedsegm_torch1.9 --display-name "unetbasedsegm_torch1.9"
-pip install -r requirements.txt
-```
+   To ensure compatibility, please check the PyTorch website for the recommended version of PyTorch for your version of CUDA.
+If you need to install the previous PyTorch versions, please check [here](https://pytorch.org/get-started/previous-versions/).
+3. Install [JupyterNotebook or JupyterLab](https://jupyter.org/install)
+4. Install fibresegt:  
+- Download the codes 
+- pip install .
+
 ### Check the installation
-Check the PyTorch GPU version is installed successfully
+- To check if the PyTorch GPU version has been installed successfully, run the following commands in Python:
 ```bash
-python
 import torch
 print(torch.cuda.is_available())
 print(torch.version.cuda)
 ```
+- To check if the package 'fibresegt' has been installed successfully, run the following commands in Python:
+ ```bash
+import fibresegt as fs
+print(fs.version)
+```
 
 ## Usage
+We have provided several jupyter notebooks to aid in understanding the usage of FibreSegt for individual fibre segmentation.
+
 ### Training
-Train from scratch based on the 2D slice.
+Train a model from scratch using 2D slices.
 ```bash
-trainfibre2D.ipynb
-```
-### Segment 2D fibre
-Segmentation of any specified 2D slice.
-```bash
-segmfibre2D.ipynb
+notebooks/trainfibre2D.ipynb
 ```
 
-### Segment 3D&4D fiber
-Segmentation of 3D&4D data based on the 2D slice.
+### Segment slices
+Perform segmentation on any specified 2D slice.
 ```bash
-segmfiber3D&4D.ipynb
+notebooks/segmfibre2D.ipynb
 ```
-![Segmentation results step 1](images/overlay_img.png)
-![Segmentation results step 2](images/overlay_img_ste2.png)
+
+### Segment volume
+Perform segmentation on a 3D CT volume.
+```bash
+notebooks/segmfibre3D.ipynb
+```
+
+### Evaluation
+Evaluate the segmentation results on an entire 3D dataset.
+```bash
+notebooks/evalulate.ipynb
+```
+
 
 ## Pretrained model
-A [pretrained model](output/T700-T-17/model/visionary-disco-21/) is available for the T700 unidirectional composite.
+A pre-trained model is available for the slow-acquisition dataset and can be found [here](/output/demo/checkpoint/).
+
+## How FibreSegt works
+  1. The first step is to create a mask for the training image and crop them to the specified image size.
+  2. The second step is to train the U-Net-id model using paired grayscale and manually labelled images.
+  3. The final step is to use the trained U-Net-id model to segment other datasets.  
+This is the flowchart: 
+![flowchart](images/flowchart.png)
+
+## Citation
+If you use the codes, please cite our paper:
+
+
+## Contributors

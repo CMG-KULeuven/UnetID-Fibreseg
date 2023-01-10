@@ -1,0 +1,34 @@
+{
+    "The training data information: ": {
+        "data_info": {
+            "dataset_file": "./data/demo/training_data/grayscale_slice/slice_00000_H300-250_550_W150-250_400.tif",
+            "label_file": "./data/demo/training_data/mask_slice/Masks_slice_00000_H300-250_550_W150-250_400.png"
+        },
+        "sample_info": {
+            "image_size": [
+                64,
+                64
+            ],
+            "train_stride_step": 8,
+            "itera_enlarge_size": 2
+        }
+    },
+    "The hyperparameters of the network: ": {
+        "val_percent": 0.0,
+        "epochs": 2,
+        "batch_size": 16,
+        "learning_rate": 0.001,
+        "net_var": "UnetID",
+        "optimizer_method": "Adam",
+        "loss_method": "BCE+dice",
+        "data_aug": {
+            "brightness": 0.3,
+            "contrast": 0.3,
+            "GaussianBlur_kernel": 5,
+            "GaussianBlur_sigma": [
+                0.7,
+                1.3
+            ]
+        }
+    }
+}

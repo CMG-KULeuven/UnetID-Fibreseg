@@ -1,0 +1,3 @@
+the mean and standard deviation of fibre_num for multiple slices is :                     10.0, 1.0
+the mean and standard deviation of fibre_diameter for all complete fibres in multiple slices is :                         4.951228717142946, 3.3270150037993416
+the mean and standard deviation of fibre_AspectRatio  for all complete fibres in multiple slices is :                         1.4434596497007448, 0.3856298535602191
