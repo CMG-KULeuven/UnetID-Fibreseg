@@ -1,6 +1,0 @@
-# These are some ignored file patterns.
-
-# Useless files
-*.pyc
-__pycache__
-.ipynb_checkpoints

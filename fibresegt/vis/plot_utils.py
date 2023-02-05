@@ -58,16 +58,16 @@ def overlay(grayscale_img, mask_img, visulize_area, show_model='inner fibre'):
     plt.imshow(data_rgb)
     return data_rgb
 
-def visualize_3d_data(data_list, set_id, visulize_plane_range, overlay=False, show_model=None):
+def visualize_3d_data(data_list, set_id, visulize_plane_range, is_overlay_enabled=False, show_model=None):
     """Visualize the 3D data.
 
     Args:
         data_list (_list_):  A list to save the 3D data and segmented results.
         set_id (_str or int_): specify which set of data you want to see
         visulize_plane_range (_list_): Specify which plane and plane size of the data you want to see
-        overlay (_bool_): Set to True if you want to see the overlay results
+        is_overlay_enabled (_bool_): Set to True if you want to see the overlay results
     """ 
-    if overlay:
+    if is_overlay_enabled:
         data_num = len(data_list)
         if data_num == 1:
             print(f'Please check whether you input the segmented results in the data')
@@ -84,7 +84,7 @@ def visualize_3d_data(data_list, set_id, visulize_plane_range, overlay=False, sh
                 data = data[slice_range[0]]
             data2d.append(data[slice_range[0],:,:])
         visulize_area = [height_range, width_range]
-        if overlay:
+        if is_overlay_enabled:
             overlay(data2d[0], data2d[1], visulize_area, show_model=show_model)
         else:
             plt.imshow(data2d[0][height_range[0]:height_range[1], width_range[0]:width_range[1]], cmap='gray')
@@ -98,7 +98,7 @@ def visualize_3d_data(data_list, set_id, visulize_plane_range, overlay=False, sh
                 print(data.shape)
             data2d.append(data[:,height_range[0],:])
         visulize_area = [slice_range, width_range]
-        if overlay:
+        if is_overlay_enabled:
             overlay(data2d[0], data2d[1], visulize_area, show_model=show_model)
         else:
             plt.imshow(data2d[0][slice_range[0]:slice_range[1], width_range[0]:width_range[1]], cmap='gray')
@@ -112,7 +112,7 @@ def visualize_3d_data(data_list, set_id, visulize_plane_range, overlay=False, sh
                 print(data.shape)
             data2d.append(data[:,:,width_range[0]])
         visulize_area = [slice_range, height_range]
-        if overlay:
+        if is_overlay_enabled:
             overlay(data2d[0], data2d[1], visulize_area, show_model=show_model)
         else:
             plt.imshow(data2d[0][slice_range[0]:slice_range[1], height_range[0]:height_range[1]], cmap='gray')

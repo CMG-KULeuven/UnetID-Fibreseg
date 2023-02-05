@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-Author: Rui Guo (KU Leuven), rui.guo1@kuleuven.be
-Date: July 2022
-"""
-
 import torch
 import os
 import time
@@ -85,7 +80,7 @@ def segm_2d_data(dataset,
                                   constant_value=constant_value,
                                   out_threshold=out_threshold)
     end_t = time.time()
-    print('Sementation is finished, ')
+    print('Segmentation is finished, ')
     print('The time needed is: ', end_t-start_t)
     print('Now we are saving the results ...')
     if save_orig_results or not postproc_param:
@@ -201,7 +196,7 @@ def segm_3d_data(dataset,
                             constant_value=constant_value,
                             out_threshold=out_threshold) for batch_data3D in batch_data3D_load]
         end_t = time.time()
-        print('Sementation is finished, ')
+        print('Segmentation is finished, ')
         print('The time needed is: ', end_t-start_t)
         print('Now we are saving the results ...')
         

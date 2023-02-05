@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-Author: Rui Guo (KU Leuven), rui.guo1@kuleuven.be
-Date: Jan 2023
-"""
-
 import torch
 from torch import optim
 import torch.nn.functional as F

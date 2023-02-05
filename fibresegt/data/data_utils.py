@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-Author: Rui Guo (KU Leuven), rui.guo1@kuleuven.be
-Date: July 2022
-"""
-
 import numpy as np
 import os
 import glob
@@ -136,11 +131,13 @@ def save_3d_dataset(path_list, data3D, save_format=('png'), save_image_num=20, s
             print('We do not provide such api, please change it as default, then you can get all information')
     
     if 'H5' in save_format:
+        h5file_dir = join(path, 'h5file')
+        mkdir(h5file_dir)
         if save_info=='default':
-            with h5py.File((path + '/Segmented_process.h5'), 'w') as hdf:
+            with h5py.File((h5file_dir + '/Segmented_process.h5'), 'w') as hdf:
                 hdf.create_dataset('data', data=data3D)
         elif save_info=='inner':
-            with h5py.File((path + '/Segmented_process.h5'), 'w') as hdf:
+            with h5py.File((h5file_dir + '/Segmented_process.h5'), 'w') as hdf:
                 hdf.create_dataset('data', data=data3D[...,0])
 
 def conv_rgb_img(img):

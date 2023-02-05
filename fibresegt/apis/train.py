@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-Author: Rui Guo (KU Leuven), rui.guo1@kuleuven.be
-Date: July 2022
-"""
-
 import torch
 from tqdm import tqdm
 import time as time
@@ -67,8 +62,8 @@ def train_net(Data,
                 
                 pbar.update(train_images.shape[0])
                 global_step += 1
-                epoch_loss += loss
-                pbar.set_postfix(**{'training loss (batch)': loss.item()})
+                epoch_loss += loss.item()
+            pbar.set_postfix(**{'training loss (batch)': epoch_loss/len(train_loader)})
         
         if epoch == 1 or epoch % 100 == 0:
             if val_percent !=0.0 :

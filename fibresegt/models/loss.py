@@ -1,6 +1,4 @@
 """
-Author: Rui Guo (KU Leuven), rui.guo1@kuleuven.be
-Date: July 2022
 Refer: 
 This project uses codes are from the Pytorch-UNet library (available at https://github.com/milesial/Pytorch-UNet/) 
 The Pytorch-UNet library is licensed under the GPL-3.0 license."
