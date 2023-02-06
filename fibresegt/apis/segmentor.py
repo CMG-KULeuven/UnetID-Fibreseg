@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+"""
+Author: Rui Guo (KU Leuven), rui.guo1@kuleuven.be
+Date: 202s
+"""
+
 import torch
 import os
 import time

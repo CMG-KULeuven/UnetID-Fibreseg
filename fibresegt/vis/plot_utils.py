@@ -3,7 +3,7 @@
 
 """
 Author: Rui Guo (KU Leuven), rui.guo1@kuleuven.be
-Date: July 2022
+Date: 2022
 """
 
 import cv2 as cv

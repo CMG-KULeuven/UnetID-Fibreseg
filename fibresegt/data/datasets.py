@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+"""
+Author: Rui Guo (KU Leuven), rui.guo1@kuleuven.be
+Date: 2022
+"""
+
 import torch
 from torch.utils.data import Dataset
 import numpy as np

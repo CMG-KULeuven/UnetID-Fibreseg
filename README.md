@@ -69,7 +69,8 @@ print(torch.version.cuda)
 ```
 
 ## Usage
-We have provided several jupyter notebooks to aid in understanding the usage of UnetID-FibreSeg for individual fibre segmentation.
+We have provided several jupyter notebooks to aid in understanding the usage of UnetID-FibreSeg for individual fibre segmentation. 
+To use them, please put these notebooks outside of the notebook folder within this project.
 
 ### Training
 Train a model from scratch using 2D slices.

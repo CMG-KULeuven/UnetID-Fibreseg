@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 
 """
+Author: Rui Guo (KU Leuven), rui.guo1@kuleuven.be
+Date: 2022
+
 Refer: 
 This project incorporates code from the Pytorch-UNet library (available at https://github.com/milesial/Pytorch-UNet) 
 and the U-Net-id methods (described in the paper at https://www.mdpi.com/2072-4292/12/10/1544). 

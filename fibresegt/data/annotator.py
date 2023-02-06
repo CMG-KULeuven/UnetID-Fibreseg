@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 """"
+Author: Rui Guo (KU Leuven), rui.guo1@kuleuven.be
+Date: 2022
+
 This project is from the insegtpy library (available at https://github.com/vedranaa/insegtpy) 
 The insegtpy library is licensed under the GPL-3.0 license."
 """
